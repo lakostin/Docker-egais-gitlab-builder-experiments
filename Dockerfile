@@ -3,11 +3,18 @@ FROM centos:latest
 
 MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
 
+# Separate install to see repo enabled
+RUN yum install -y epel-release
+
+# We don't fair it will be fat - it intended to start faster many times. So, single download time have no many sence.
 RUN yum install -y \
 	docker \
 	java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless \
 	ruby \
 	git \
+	iproute \
+	postgresql \
+	python2-httpie \
 		&& yum clean all
 
 # First attempt workaround of https://gitlab.com/gitlab-org/gitlab-ce/issues/22299
