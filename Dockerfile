@@ -1,7 +1,7 @@
 # https://hub.docker.com/_/centos/
 FROM centos:latest
 
-MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
+LABEL MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
 
 # Separate install to see repo enabled
 RUN yum install -y epel-release
@@ -15,7 +15,9 @@ RUN yum install -y \
 	iproute \
 	postgresql \
 	python2-httpie \
-		&& yum clean all
+	python2*-pip \
+		&& yum clean all \
+	&& pip2 install docker-compose `# unfortunately no rpm in EPEL repository`
 
 # First attempt workaround of https://gitlab.com/gitlab-org/gitlab-ce/issues/22299
 RUN sed -i.bak -- "s/OPTIONS='--selinux-enabled --log-driver=journald.*$/OPTIONS='--selinux-enabled --log-driver=journald --add-registry docreg.taskdata.work:5000'/" /etc/sysconfig/docker
