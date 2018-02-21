@@ -1,1 +1,1 @@
-docker build -t hubbitus/egais-gitlab-builder:latest .
+sudo docker build -t hubbitus/egais-gitlab-builder:fedora .g ch -b

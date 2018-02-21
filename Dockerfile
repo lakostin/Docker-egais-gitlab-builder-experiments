@@ -1,10 +1,7 @@
 # https://hub.docker.com/_/centos/
-FROM centos:latest
+FROM fedora:latest
 
 LABEL MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
-
-# Separate install to see repo enabled
-RUN yum install -y epel-release
 
 # We don't fair it will be fat - it intended to start faster many times. So, single download time have no many sence.
 RUN yum install -y \
@@ -13,11 +10,11 @@ RUN yum install -y \
 	ruby \
 	git \
 	iproute \
-	postgresql \
-	python2-httpie \
+	httpie \
 	python2*-pip \
+	chromium firefox Xvfb which xauth \
 		&& yum clean all \
 	&& pip2 install docker-compose --upgrade `# unfortunately no rpm in EPEL repository`
 
-# First attempt workaround of https://gitlab.com/gitlab-org/gitlab-ce/issues/22299
-RUN sed -i.bak -- "s/OPTIONS='--selinux-enabled --log-driver=journald.*$/OPTIONS='--selinux-enabled --log-driver=journald --add-registry docreg.taskdata.work:5000'/" /etc/sysconfig/docker
+# workaround of @issue https://gitlab.com/gitlab-org/gitlab-ce/issues/22299
+RUN sed -i.bak -- "s/OPTIONS='--selinux-enabled --log-driver=journald.*$/OPTIONS='--selinux-enabled --log-driver=journald --add-registry docreg.taskdata.work'/" /etc/sysconfig/docker
