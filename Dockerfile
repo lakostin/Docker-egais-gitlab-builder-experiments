@@ -3,6 +3,7 @@ FROM fedora:latest
 
 LABEL MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
 
+
 # We don't fair it will be fat - it intended to start faster many times. So, single download time have no many sence.
 RUN yum install -y \
 	docker \
