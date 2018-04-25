@@ -8,6 +8,7 @@ RUN yum install -y epel-release
 
 # We don't fair it will be fat - it intended to start faster many times. So, single download time have no many sence.
 RUN yum install -y \
+	ansible \
 	docker \
 	java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless \
 	ruby \
