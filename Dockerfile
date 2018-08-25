@@ -10,10 +10,9 @@ RUN yum install -y \
 	java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless \
 	ruby \
 	git \
-	iproute \
 	httpie \
 	python2*-pip \
-	chromium firefox Xvfb which xauth \
+	chromium Xvfb which xauth \
 		&& yum clean all \
 	&& pip2 install docker-compose --upgrade `# unfortunately no rpm in EPEL repository`
 
