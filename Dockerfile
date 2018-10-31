@@ -1,4 +1,4 @@
-# https://hub.docker.com/_/centos/
+# https://hub.docker.com/_/fedora
 FROM fedora:latest
 
 LABEL MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
