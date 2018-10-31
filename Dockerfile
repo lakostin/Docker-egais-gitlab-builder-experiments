@@ -14,7 +14,7 @@ RUN yum install -y \
 	python2*-pip \
 	chromium Xvfb which xauth \
 		&& yum clean all \
-	&& pip2 install docker-compose --upgrade `# unfortunately no rpm in EPEL repository`
+	&& pip2 install docker-compose==1.22.0 --upgrade `# unfortunately no rpm in EPEL repository`
 
 # workaround of @issue https://gitlab.com/gitlab-org/gitlab-ce/issues/22299
 RUN sed -i.bak -- "s/OPTIONS='--selinux-enabled --log-driver=journald.*$/OPTIONS='--selinux-enabled --log-driver=journald --add-registry docreg.taskdata.work'/" /etc/sysconfig/docker
