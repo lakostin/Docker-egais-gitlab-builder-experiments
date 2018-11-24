@@ -3,6 +3,7 @@ FROM fedora:latest
 
 LABEL MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
 
+
 # We don't fair it will be fat - it intended to start faster many times. So, single download time have no many sence.
 RUN dnf install -y 'dnf-command(copr)' \
 	&& dnf copr enable -y ycollet/linuxmao \
@@ -10,6 +11,7 @@ RUN dnf install -y 'dnf-command(copr)' \
 		docker docker-compose \
 		helm kubernetes-client \
 		java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless \
+		jq \
 		ruby \
 		git \
 		httpie \
