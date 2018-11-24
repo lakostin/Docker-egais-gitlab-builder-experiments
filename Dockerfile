@@ -14,6 +14,7 @@ RUN dnf install -y 'dnf-command(copr)' \
 		jq \
 		ruby \
 		git \
+		gunzip \
 		httpie \
 		chromium \
 	&& dnf clean all
