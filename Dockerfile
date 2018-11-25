@@ -14,7 +14,7 @@ RUN dnf install -y 'dnf-command(copr)' \
 		jq \
 		ruby \
 		git \
-		gzip \
+		gzip which `# For sencha installer` \
 		httpie \
 		chromium \
 	&& dnf clean all
