@@ -8,7 +8,7 @@ Based on latest Centos image and include next main packages:
  * `ruby` - for use `SenchaCMD`
  * `git` - `gradle-node-plugin` require it to `npm` build (@see http://git.taskdata.com/Hubbitus/glr-portal/builds/984)
  * `postgres` - client utils to console query databases and ping it
- * `docker-compose` - to up stack for testing
+ * `docker docker-compose helm kubernetes-client` - to up stack for testing
 
 There also enabled epel-repo.
 
