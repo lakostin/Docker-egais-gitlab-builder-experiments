@@ -10,6 +10,7 @@ RUN dnf install -y \
 		kubernetes-client https://copr-be.cloud.fedoraproject.org/results/jwendell/helm/fedora-29-x86_64/00687734-helm/helm-2.7.2-1.fc28.x86_64.rpm \
 		java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless \
 		jq \
+		nc \
 		ruby \
 		git \
 		gzip which `# For sencha installer` \
