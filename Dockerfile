@@ -15,7 +15,7 @@ RUN dnf install -y \
 		git \
 		gzip which `# For sencha installer` \
 		httpie \
-		chromium \
+		chromium-75.0.3770.100 \
 	&& dnf clean all
 
 # workaround of @issue https://gitlab.com/gitlab-org/gitlab-ce/issues/22299
