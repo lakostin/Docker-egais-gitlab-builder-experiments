@@ -3,6 +3,7 @@ FROM fedora:latest
 
 LABEL MAINTAINER Pavel Alexeev <Pahan@Hubbitus.info>
 
+ARG TZ=Europe/Moscow
 
 # We don't fair it will be fat - it intended to start faster many times. So, single download time have no many sence.
 RUN dnf install -y \
@@ -16,6 +17,7 @@ RUN dnf install -y \
 		gzip which `# For sencha installer` \
 		httpie \
 		chromium-75.0.3770.100 \
+        && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
 	&& dnf clean all
 
 # workaround of @issue https://gitlab.com/gitlab-org/gitlab-ce/issues/22299
